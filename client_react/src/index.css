@@ -1,0 +1,103 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+:root {
+  --font-size-sm: .9rem;
+  --font-size-md: clamp(1rem, 3vw, 1.2rem);
+  --font-size-lg: clamp(1.5rem, 5vw, 2rem);
+  --gradient: linear-gradient(315deg, #ffc300 0%, #ffd60a 74%);
+  --gradient-hover: linear-gradient(315deg, rgb(255, 221, 0) 0%, rgb(255, 243, 10) 74%);
+  --gradient-active: linear-gradient(315deg, #ffae00 0%, #f3c408 74%);
+  --background-color: #000814;
+  --background-darker: #000814;
+  --background-accent: #626464;
+  --background-form: #000814;
+  --background-form-gradient: linear-gradient(315deg, #000814 0%, #0c2142 84%);
+  --border-bottom: #000814;
+  --border-footer: #F7F8F8;
+  --form-h2-color: #F7F8F8;
+  --text-color: #F7F8F8;
+  --link-color: #828fff;
+}
+html[data-theme='light'] {
+  --background-color: #f7f8f8;
+  --background-darker: #f7f8f9;
+  --background-accent: #c7cbcb;
+  --background-form: #001d3d;
+  --background-form-gradient: linear-gradient(315deg, #000814 0%, #003566 84%);
+  --border-bottom: #003566;
+  --text-color: #121416d8;
+  --link-color: #543fd7;
+  --border-footer: #003566;
+}
+
+h1, h2, h3 {
+  font-size: var(--font-size-lg);
+}
+p {
+  color: var(--text-color);
+  font-size: var(--font-size-md);
+}
+small {
+  font-size: var(--font-size-sm);
+}
+
+.app {
+  font-family: 'Poppins', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.15s ease-out;
+}
+
+.main {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+@media (hover: hover) {
+  .btn_submit:hover {
+    background: var(--gradient-hover);
+  }
+  .btn_submit:active {
+    background: var(--gradient-active);
+  }
+  .download_btn:hover {
+    background-image: var(--gradient-hover);
+  }
+  .download_btn:active {
+    background-image: var(--gradient-active);
+  }
+}
+@media (hover: none) {
+  .btn_submit:active {
+    background: var(--gradient-active);
+  }
+  .download_btn:active {
+    background-image: var(--gradient-active);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  footer, .info_section, .form_container {
+    padding-inline: .5rem;
+  }
+  header {
+    padding: .5rem;
+  }
+  .heading{
+    display: none;
+  }
+}

@@ -1,0 +1,9 @@
+test.txt
+dist
+vol
+music
+videos
+.env
+.env.*
+.idea
+client

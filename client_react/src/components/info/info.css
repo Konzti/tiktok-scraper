@@ -1,0 +1,22 @@
+.info_section {
+    padding-block: 1rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.info_section p {
+    font-weight: bold;
+    margin-right: .75rem;
+}
+.info_section span {
+    font-size: 1.75rem;
+    margin-right: .75rem;
+}
+.info_bullet {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.info_bullet:first-child {
+    margin-top: 1rem;
+}

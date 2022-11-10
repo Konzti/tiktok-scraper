@@ -1,0 +1,51 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-darker);
+    width: 100%;
+    border-bottom: solid 1px var(--border-bottom);
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.heading h2 {
+    font-family: 'Rock Salt', cursive;
+    color: var(--text-color);
+    text-shadow: #ffc300 2px 2px 0, #ffd60a 3px 3px 0;
+}
+
+.theme_btn_wrap, .icon_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 10vw;
+}
+.icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.theme_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .15s ease;
+    padding: 0.7rem;
+    background-color: var(--background-accent);
+}
+.theme_btn svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.theme_btn img {
+    width: 1.2rem;
+    height: 1.2rem;
+}

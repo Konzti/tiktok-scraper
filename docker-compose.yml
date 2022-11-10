@@ -1,0 +1,25 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - tiktok:/app/vol
+    env_file:
+      - .env
+    restart: unless-stopped
+
+    ports:
+      - "8080:8080"
+
+  cron:
+    build:
+      context: ./cron
+    restart: unless-stopped
+    volumes:
+      - tiktok:/tiktok
+
+volumes:
+    tiktok:
+      external: true
+

@@ -1,0 +1,40 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 1rem;
+    background-color: var(--background-darker);
+    width: 100%;
+    border-top: solid 1px var(--border-footer);
+}
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+.contact a {
+    text-decoration: none;
+}
+.contact_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact_item img {
+    width: 1.7rem;
+    height: 1.7rem;
+    background-color: white;
+    margin-right: .5rem;
+}
+
+.theme_btn_wrap_footer {
+    display: none;
+}
+.disc_section {
+    margin-bottom: 1rem;
+    width: 100%;
+    /*max-width: 500px;*/
+    text-align: center;
+}
