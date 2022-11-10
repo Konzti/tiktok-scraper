@@ -1,7 +1,7 @@
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import {ThemeProvider} from "./theme/useTheme";
 import MainSection from "./mainSection/mainSection";
+import {ThemeProvider} from "./theme/useTheme";
 
 function App() {
     return (

@@ -73,19 +73,26 @@ func ApiHandler(c *gin.Context) {
 			}
 			//utils.SearchForImageLinks(requestBody.URL)
 
-			//foundUrl, err := utils.SearchForCanonical(requestBody.URL)
-			//if err != nil {
-			//	c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid URL"})
-			//	return
-			//}
-			//newParsedUrl, err := url.ParseRequestURI(foundUrl)
-			//if err != nil {
-			//	c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-			//	return
-			//}
-			//return
+			foundUrl, err := utils.SearchForCanonical(requestBody.URL)
+			if err != nil {
+				c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid URL"})
+				return
+			}
+			newParsedUrl, err := url.ParseRequestURI(foundUrl)
+			if err != nil {
+				c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+				return
+			}
+			// SCRAPE VIDEO!!!
+			ScrapeForVideo(newParsedUrl, c)
+			return
 		}
 	}
+	ScrapeForVideo(parsedUrl, c)
+
+}
+
+func ScrapeForVideo(parsedUrl *url.URL, c *gin.Context) {
 	if !strings.Contains(parsedUrl.Path, "/video/") {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "No valid video path"})
 		return
@@ -104,9 +111,9 @@ func ApiHandler(c *gin.Context) {
 	selector := "video"
 	start := time.Now()
 
-	err = chromedp.Run(ctx,
+	err := chromedp.Run(ctx,
 		emulation.SetUserAgentOverride("Mozilla/5.0  (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/86.0.170 Chrome/80.0.3987.170 Safari/537.36"),
-		chromedp.Navigate(requestBody.URL),
+		chromedp.Navigate(parsedUrl.String()),
 		chromedp.WaitReady(selector, chromedp.ByQuery),
 		chromedp.Nodes(selector, &nodes),
 		chromedp.ActionFunc(
@@ -141,7 +148,6 @@ func ApiHandler(c *gin.Context) {
 	//fmt.Printf("h1 contains: '%s'\n", res)
 	fmt.Printf("\nTook: %f secs\n", time.Since(start).Seconds())
 	c.JSON(http.StatusOK, gin.H{"data": scrapeResponse})
-
 }
 
 func VideoHandler(c *gin.Context) {
