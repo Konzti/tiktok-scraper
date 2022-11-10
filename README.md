@@ -3,7 +3,12 @@
 This is a Tiktok Downloader written in Go accompanied by a React client. 
 
 This app uses the awesome Gin framework
+<br/>
 https://github.com/gin-gonic/gin
+<br/>
+as well as chromedp for the headless browser
+<br/>
+https://github.com/chromedp/chromedp
 
 ## Important:
 

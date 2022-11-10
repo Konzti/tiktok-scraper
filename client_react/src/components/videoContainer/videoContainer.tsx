@@ -1,14 +1,10 @@
 import {IMG_RATIO} from "../../constants";
 import { requestDownload } from "../../utils/utils";
+import {ScrapeResponse} from "../../types";
 import './container.css'
 
-export type ResponseProps = {
-    videoURL: string,
-    img: string,
-    videoId: string,
-}
 
-const VideoContainer = (props: ResponseProps) => {
+const VideoContainer = (props: ScrapeResponse) => {
     const openVideo = () => {
         window.open(props.videoURL, '_blank');
     }

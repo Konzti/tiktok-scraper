@@ -7,11 +7,8 @@ import {API, ENDPOINT} from "../../constants";
 import paste from "../../assets/paste.svg";
 import clear from "../../assets/clear.svg";
 import './form.css';
-import {ResponseProps} from "../videoContainer/videoContainer";
+import {FormProps} from "../../types";
 
-type FormProps = {
-    setResponse: (response: ResponseProps) => void
-}
 
 const Form = ({setResponse}: FormProps) => {
     const [inputUrl, setInputUrl] = useState<string>("");
@@ -42,8 +39,7 @@ const Form = ({setResponse}: FormProps) => {
                 body
             })
             if (response.ok) {
-                let data = await response.json()
-                console.log(data.data)
+                const data = await response.json();
                 setResponse(data.data)
 
             } else if (response.status === 404) {

@@ -83,7 +83,6 @@ func ApiHandler(c *gin.Context) {
 				c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 				return
 			}
-			// SCRAPE VIDEO!!!
 			ScrapeForVideo(newParsedUrl, c)
 			return
 		}

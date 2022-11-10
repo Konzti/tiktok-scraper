@@ -2,10 +2,10 @@ import Form from "../components/form/form";
 import InfoSection from "../components/info/infoSection";
 import {useState} from "react";
 import VideoContainer from "../components/videoContainer/videoContainer";
-import {ResponseProps} from "../components/videoContainer/videoContainer";
+import {ScrapeResponse} from "../types";
 
 const MainSection = () => {
-    const [response, setResponse] = useState<ResponseProps | null>(null);
+    const [response, setResponse] = useState<ScrapeResponse | null>(null);
 
     return (
         <main className="main">
